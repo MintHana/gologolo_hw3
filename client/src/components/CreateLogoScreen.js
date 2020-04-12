@@ -7,11 +7,23 @@ const ADD_LOGO = gql`
     mutation AddLogo(
         $text: String!,
         $color: String!,
-        $fontSize: Int!) {
+        $fontSize: Int!,
+        $backgroundColor: String!,
+        $borderColor: String!,
+        $borderRadius: Int!,
+        $borderWidth: Int!,
+        $padding: Int!,
+        $margin: Int!) {
         addLogo(
             text: $text,
             color: $color,
-            fontSize: $fontSize) {
+            fontSize: $fontSize,
+            backgroundColor: $backgroundColor,
+            borderColor: $borderColor,
+            borderRadius: $borderRadius,
+            borderWidth: $borderWidth,
+            padding: $padding,
+            margin: $margin) {
             _id
         }
     }
@@ -20,7 +32,7 @@ const ADD_LOGO = gql`
 class CreateLogoScreen extends Component {
 
     render() {
-        let text, color, fontSize;
+        let text, color, fontSize, backGroundColor, borderColor, borderRadius, borderWidth, padding, margin;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push('/')}>
                 {(addLogo, { loading, error }) => (
@@ -39,6 +51,13 @@ class CreateLogoScreen extends Component {
                                     text.value = "";
                                     color.value = "";
                                     fontSize.value = "";
+                                    backGroundColor.value = "";
+                                    borderColor.value = "";
+                                    borderRadius.value = "";
+                                    borderWidth.value = "";
+                                    padding.value = "";
+                                    margin.value = "";
+
                                 }}>
                                     <div className="form-group">
                                         <label htmlFor="text">Text:</label>
