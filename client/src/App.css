@@ -66,6 +66,10 @@ h3 {
   margin: 1.9466666667rem 0 1.168rem 0;
 }
 
+displayLogo {
+   margin-left: 300%;
+}
+
 html {
   font-size: 15px;
   line-height: 1.5;

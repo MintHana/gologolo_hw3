@@ -38,7 +38,6 @@ class ViewLogoScreen extends Component {
                 {({ loading, error, data }) => {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
-
                     return (
                         <div className="container">
                             <div className="panel panel-default">
@@ -48,8 +47,27 @@ class ViewLogoScreen extends Component {
                                         View Logo
                                     </h3>
                                 </div>
-                                <div className="panel-body">
-                                    <dl>
+                                <div className="panel-body" style = {{position: 'relative'}}>
+                                    <div className="displayLogo">
+                                                    <div style = {{
+                                                                overflow: 'auto',
+                                                                display: 'inline-block',
+                                                                position:"absolute",
+                                                                width:'min-content',
+                                                                left: 250+'px',
+                                                                "border-style": "solid",
+                                                                color: data.logo.color,
+                                                                fontSize: data.logo.fontSize+"pt",
+                                                                backgroundColor: data.logo.backgroundColor,
+                                                                "border-color":data.logo.borderColor,
+                                                                "border-radius":data.logo.borderRadius+"pt",
+                                                                "border-width":data.logo.borderWidth+"pt",
+                                                                padding:data.logo.padding+"pt",
+                                                                margin:data.logo.margin+"pt"}}>
+                                                        {data.logo.text}
+                                                    </div>
+                                                </div>
+                                        <dl>
                                         <dt>Text:</dt>
                                         <dd>{data.logo.text}</dd>
                                         <dt>Color:</dt>
